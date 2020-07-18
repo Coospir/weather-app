@@ -1,11 +1,52 @@
 import React, { Component }  from 'react';
 import './App.css';
 import Info from "./components/info";
+import Weather from "./components/weather";
+
+const API_KEY = "12195ce8c347a4d8940272852b1d3634";
+
+
 
 class App extends Component {
+
+    state = {
+        temp: undefined,
+        country: undefined,
+        sunrise: undefined,
+        sunset: undefined,
+        error: undefined
+    }
+
+
+  gettingWeather = async() => {
+      const apiURL = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=Moscow&units=metric&appid=${API_KEY}`);
+      const data = await apiURL.json();
+      console.log(data);
+      this.setState({
+          temp: data.main.temp,
+          weather: data.weather[0].main,
+          city: data.name,
+          country: data.sys.country,
+          sunrise: data.sys.sunrise,
+          sunset: data.sys.sunset,
+          error: ""
+      });
+  }
+
+
   render() {
     return (
-        <div><Info/></div>
+        <div>
+            <Info/>
+            <Weather weatherGetter={this.gettingWeather()}
+            country={this.state.country}
+            city={this.state.city}
+            temp={this.state.temp}
+            sunrise={this.state.sunrise}
+            sunset={this.state.sunset}
+            error={this.state.error}
+            />
+        </div>
     )
   }
 }

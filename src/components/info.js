@@ -4,8 +4,7 @@ class Info extends Component {
     render() {
         return (
             <div>
-                <h2>Погода</h2>
-                <p>Узнайте погоду в Вашем городе!</p>
+                <h1>Погода</h1>
             </div>
         )
     }
