@@ -11,6 +11,10 @@ class App extends Component {
 
     state = {
         temp: undefined,
+        feels_like: undefined,
+        city: undefined,
+        weather_description: undefined,
+        weather_main: undefined,
         country: undefined,
         sunrise: undefined,
         sunset: undefined,
@@ -24,14 +28,16 @@ class App extends Component {
       console.log(data);
       this.setState({
           temp: data.main.temp,
-          weather: data.weather[0].main,
+          feels_like: data.main.feels_like,
+          weather_description: data.weather[0].description,
+          weather_main: data.weather[0].main,
           city: data.name,
           country: data.sys.country,
           sunrise: data.sys.sunrise,
           sunset: data.sys.sunset,
           error: ""
       });
-  }
+  };
 
 
   render() {
@@ -42,6 +48,9 @@ class App extends Component {
             country={this.state.country}
             city={this.state.city}
             temp={this.state.temp}
+            weather_description={this.state.weather_description}
+            weather_main={this.state.weather_main}
+            feels_like={this.state.feels_like}
             sunrise={this.state.sunrise}
             sunset={this.state.sunset}
             error={this.state.error}
