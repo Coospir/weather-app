@@ -1,6 +1,6 @@
 import React, { Component }  from 'react';
 import './App.css';
-import Info from "./components/info";
+//import Info from "./components/info";
 import Weather from "./components/weather";
 
 const API_KEY = "12195ce8c347a4d8940272852b1d3634";
@@ -15,6 +15,7 @@ class App extends Component {
         city: undefined,
         weather_description: undefined,
         weather_main: undefined,
+        wind: undefined,
         country: undefined,
         sunrise: undefined,
         sunset: undefined,
@@ -31,6 +32,7 @@ class App extends Component {
           feels_like: data.main.feels_like,
           weather_description: data.weather[0].description,
           weather_main: data.weather[0].main,
+          wind: data.wind.speed,
           city: data.name,
           country: data.sys.country,
           sunrise: data.sys.sunrise,
@@ -43,13 +45,13 @@ class App extends Component {
   render() {
     return (
         <div>
-            <Info/>
             <Weather weatherGetter={this.gettingWeather()}
             country={this.state.country}
             city={this.state.city}
             temp={this.state.temp}
             weather_description={this.state.weather_description}
             weather_main={this.state.weather_main}
+            wind={this.state.wind}
             feels_like={this.state.feels_like}
             sunrise={this.state.sunrise}
             sunset={this.state.sunset}
