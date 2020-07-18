@@ -1,6 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-#weather-app
+# weather-app
 Created by ReactJS, Bootstrap Components, using OpenWeatherMap API.
 
 ## Available Scripts
