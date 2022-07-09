@@ -1,6 +1,5 @@
 import React, { Component }  from 'react';
 import './App.css';
-//import Info from "./components/info";
 import Weather from "./components/weather";
 
 const API_KEY = "12195ce8c347a4d8940272852b1d3634";
